@@ -31,7 +31,7 @@ function Pricing() {
               <h1 className="text-4xl text-center font-bold tracking-tight sm:text-6xl">
                 The right price for you, whoever you are
               </h1>
-              <p className="text-lg text-center leading-8 text-white/60">
+              <p className="text-lg text-center leading-8 text-black dark:text-white/60">
                 We are 99% sure we have a plan to match your needs
               </p>
             </div>

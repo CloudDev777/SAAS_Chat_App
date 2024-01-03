@@ -4,6 +4,7 @@ import "./globals.css";
 import ClientProviders from "@/components/ClientProviders";
 import ThemeProvider from "@/components/ThemeProvider";
 import Header from "@/components/Header";
+import FirebaseAuthProvider from "@/components/FirebaseAuthProvider";
 
 export const metadata: Metadata = {
   title: "Chat Multilingual",
@@ -19,15 +20,17 @@ export default function RootLayout({
     <ClientProviders>
       <html lang="en">
         <body className="flex flex-col min-h-screen">
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <Header />
-            {children}
-          </ThemeProvider>
+          <FirebaseAuthProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <Header />
+              {children}
+            </ThemeProvider>
+          </FirebaseAuthProvider>
         </body>
       </html>
     </ClientProviders>

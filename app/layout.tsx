@@ -6,6 +6,7 @@ import ThemeProvider from "@/components/ThemeProvider";
 import Header from "@/components/Header";
 import FirebaseAuthProvider from "@/components/FirebaseAuthProvider";
 import SubscriptionProvider from "@/components/SubscriptionProvider";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "Chat Multilingual",
@@ -34,6 +35,7 @@ export default function RootLayout({
               </ThemeProvider>
             </SubscriptionProvider>
           </FirebaseAuthProvider>
+          <Toaster />
         </body>
       </html>
     </ClientProviders>

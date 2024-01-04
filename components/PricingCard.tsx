@@ -20,9 +20,9 @@ const tiers = [
   },
   {
     name: "Pro",
-    id: "stripe_super_sub_id",
+    id: " ",
     href: "#",
-    priceMonthly: "$ 5.99",
+    priceMonthly: "EUR 5.99",
     description:
       "Unlock the full potential with pro! with early access features",
     features: [

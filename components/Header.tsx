@@ -7,6 +7,7 @@ import Logo from "./Logo";
 import DarkModeToggle from "./DarkModeToggle";
 import UserButton from "./UserButton";
 import CreateChatButton from "./CreateChatButton";
+import UpgradeBanner from "./UpgradeBanner";
 
 async function Header() {
   // subscriptions here firebase
@@ -35,7 +36,7 @@ async function Header() {
           <UserButton session={session} />
         </div>
       </nav>
-      {/* Banner */}
+      <UpgradeBanner />
     </header>
   );
 }

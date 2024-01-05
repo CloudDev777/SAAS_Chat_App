@@ -8,7 +8,7 @@ import { getFunctions } from "firebase/functions";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: 'AIzaSyD7fv1O2DaZCbV3YioJeMYHcn3NM8a14q4',
+  apiKey: String(process.env.FIREBASE_API_KEY),
   authDomain: "portfolio-saas-chat-app.firebaseapp.com",
   projectId: "portfolio-saas-chat-app",
   storageBucket: "portfolio-saas-chat-app.appspot.com",

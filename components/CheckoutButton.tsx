@@ -58,6 +58,15 @@ function CheckoutButton() {
   return (
     <div>
       {/* If subscribed show me the user is subscribed */}
+      {isSubscriberPro && (
+        <>
+          <hr className="mt-5" />
+          <p className="pt-5 text-center text-xs text-indigo-600">
+            You are subscribed to PRO
+          </p>
+        </>
+      )}
+
       <div className="inline-block rounded border w-full text-center mt-5 border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500 disabled:opacity-80 disabled:bg-indigo-300 disabled:cursor-default">
         {isSubscriberPro ? (
           <ManageAccountButton />

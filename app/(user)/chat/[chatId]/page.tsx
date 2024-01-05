@@ -7,6 +7,8 @@ import { getDocs } from "firebase/firestore";
 import { getServerSession } from "next-auth";
 import React from "react";
 import AdminControls from "@/components/AdminControls";
+import { chatMembersRef } from "@/lib/converters/ChatMembers";
+import { redirect } from "next/navigation";
 
 type ChatPageProps = {
   params: {
@@ -20,6 +22,15 @@ async function ChatPage({ params: { chatId } }: ChatPageProps) {
   const initialMessages = (await getDocs(sortedMessagesRef(chatId))).docs.map(
     (doc) => doc.data()
   );
+
+  const hasAccess = await (await getDocs(chatMembersRef(chatId))).docs
+    .map((doc) => doc.id)
+    .includes(session?.user.id!);
+
+  if (!hasAccess) {
+    redirect('/chat?error=permission');
+    return null;
+  }
 
   return (
     <div className="flex flex-col flex-1 min-h-screen">

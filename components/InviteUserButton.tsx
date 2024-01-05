@@ -25,6 +25,7 @@ import { getDocs, serverTimestamp, setDoc } from "firebase/firestore";
 import { addChatRef, chatMembersRef } from "@/lib/converters/ChatMembers";
 import { ToastAction } from "./ui/toast";
 import { getUserByEmailRef } from "@/lib/converters/User";
+import ShareLink from "@/ShareLink";
 
 const formSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
@@ -164,11 +165,11 @@ function InviteUserButton({ chatId }: { chatId: string }) {
             </Form>
           </DialogContent>
         </Dialog>
-        {/* <ShareLink
+        <ShareLink
           isOpen={openInviteLink}
           setIsOpen={setOpenInviteLink}
           chatId={chatId}
-        /> */}
+        />
       </>
     );
   }

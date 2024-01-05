@@ -96,6 +96,7 @@ function ChatInput({ chatId }: { chatId: string }) {
                   <Input
                     className="border-none bg-transparent dark:placeholder:text-white/70"
                     placeholder="Enter message in ANY language"
+                    autoComplete="off"
                     {...field}
                   />
                 </FormControl>

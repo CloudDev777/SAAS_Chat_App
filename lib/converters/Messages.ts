@@ -19,7 +19,7 @@ interface User {
 }
 
 export interface Message {
-  id: string;
+  id?: string;
   input: string;
   timestamp: Date;
   user: User;
@@ -32,7 +32,10 @@ const messageConvertor: FirestoreDataConverter<Message> = {
   // what goes into firebase
   toFirestore: function (message: Message): DocumentData {
     return {
-      ...message
+      input: message.input,
+      timestamp: message.timestamp,
+      user: message.user,
+      // ...other fields
     };
   },
   // what comes from firebase, that we mutate on for type definition, can

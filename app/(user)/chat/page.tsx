@@ -11,8 +11,6 @@ interface Props {
 function ChatsPage({ params, searchParams: { error } }: Props) {
   return (
     <div className="">
-      {/* Chat Permission chat */}
-
       <ChatList />
     </div>
   );

@@ -119,10 +119,16 @@ NextJS 13, Stripe payments, stripe portal links, stripe webhooks, shadcn, tailwi
     - add `useLanguageStore` hook in store.ts
     - add `<LanguageSelect />` component in Header
   - Add `/chat/:chatId` page
-    - Add ChatInput
-    - Add ChatMessages
-    - Add ChatMembersBadge
-    - Add AdminControls
+    - Add `ChatInput`
+    - Add `ChatMessages`
+    - Add `ChatMembersBadge`
+    - Add `AdminControls`
+      - Add `InviteUser`
+      - Add `ShareLink`
+      - Add `DeleteChat`
+    - Add `hooks/useIsAdmin.ts`
+- Deploy to `vercel`
+  
  
  
 

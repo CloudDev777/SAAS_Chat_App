@@ -106,9 +106,24 @@ NextJS 13, Stripe payments, stripe portal links, stripe webhooks, shadcn, tailwi
 - Add `<ManageAccountButton />` in `<CheckoutButton />`
   -  Add `actions/generatePortalLink` in `ManageAccountButton`
 - Add a new route `(user)`
+ - Add `layout.tsx` for these page under `(user)` directory
   - Add `/chat` page
+    - create `CreateChatButton`
+      - add rules in firebase for /chats/** rule sets i.e, chats/:chatid, chats/:chatid/members, chats/:chatid/members/:member, chats/:chatid/messages/:messageId
+      - create a new chat, redirect the user to chat
+      - ensure the user is pro or not and handle permissions there accordingly
+    - add a new converter for `ChatMembers` & add refs
+    - add toast from `shadcn-ui`
+    - create `ChatList`, `ChatListRows`, `ChatListRow`
+    - add `Message` converter
+    - add `useLanguageStore` hook in store.ts
+    - add `<LanguageSelect />` component in Header
   - Add `/chat/:chatId` page
-  - Add `layout.tsx` for these page under `(user)` directory
+    - Add ChatInput
+    - Add ChatMessages
+    - Add ChatMembersBadge
+    - Add AdminControls
+ 
  
 
 

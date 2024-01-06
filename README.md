@@ -50,3 +50,69 @@ pnpm dev
 bun dev
 ```
 
+#### Walkthrough when setting the application up! For self notes. 😀
+
+NextJS 13, Stripe payments, stripe portal links, stripe webhooks, shadcn, tailwind css, firebase v9, firebase rules, next auth with google provider, zod for form authentication, zustand for global state management, dark & light mode, protected routes, free tier features & paid tier features
+
+- First we install NextJS 13 via the cli for the project
+- We first create `<Header />` component
+- We then install `shadcn-ui` for components
+- Add logo in header, ensure that dark:filter is set for inverse colors in Header component
+- Add `<DarkModeToggle>` and dark mode from `shadcn-ui` follow the docs there in the library (It's all about taking smart decisions, not re-inventing the wheel)
+  - <b>Note to self:</b> Make smart decisions, get quickly to PMF
+- Add `<UserButton />` and add `<UserAvatar />`
+- Add `next-auth` for authentication, follow the documentation for providers & adapters
+  - create a firebase project for web
+  - in your `auth.ts` file, make sure add adapters, providers, callbacks to access firebase user.id for user authentication
+- Add `middleware.ts` for protected routes with `next-auth`
+- Add `<ClientProvider />` to ensure `session` is available everywhere in your <b>client side</b> application 
+- Add `NEXTAUTH_URL, NEXTAUTH_SECRET` in your .env file (when deploying on vercel you don't have to pass `NEXTAUTH_URL` it will take care of that on it's own)
+- Note: for any click handlers, the component will always be a <b>client component by using "use client"</b>
+- Go to google console, select the project
+  - In the google console, add URL to whitelist localhost (& later your production URL) for authentication
+- Set up `<Home />` i.e, `app/page.tsx` along with main layout i.e, `app/layout.tsx`
+- Add `<Pricing>` i.e, `app/pricing/page.tsx` file
+  - Make a `PricingCard` component, in a way where you can also use this in the `/register` (protected route) page as well
+  - Thing to notice in the `PricingCard` component is that we need to add a stripe product price ID, this is very important because it will tell us the role of the user i.e, `pro` & etc
+- Add `/register` page
+- Add `<Checkout />` button component
+  - On button click, it will push a document to the firestore db, stripe extension will then create a checkout session & redirect the user to checkout page
+- IMPORTANT: Add `firebase.ts` file 
+  - Go on firebase console & generate keys for your web project, from going to the settings page for your XYZ project
+- IMPORTANT: Add `firebase-admin.ts` file
+  - export adminAuth which allows us to authenticate users
+  - export adminDb which allows us to do CRUD operations on database
+  - Go on firebase console & generate keys for your web project, from going to the `settings page > service accounts` for your XYZ project & generate key for Node.js project.
+- Add next-auth-d.ts file to override the work you are doing to get firebase user.id in session, so that typescript gives you intellisense
+- Create `<FirebaseAuthProvider />` to sync user.id for `Authentication` module in firebase console, to authenticate user's browser session with firebase authentication session
+- Add `<FirebaseAuthProvider />` in `app/layout.tsx` file
+- Go to `<Checkout />` button component
+  - In firebase console add `stripe` extension, it will ask you for a stripe key
+  - Go to your stripe account & generate a `restricted key` for your project with <b>right permissions</b>
+    - Once it starts setting the extension up, it will give you rules that you can simply copy and paste & add it in your rules config
+  - Come back to the extension setup in firebase and copy secret & click `create secret` button & do the same for stripe webhooks secret as well (it requires certain permissions)
+    - For stripe webhooks create the webhook with the right permissions that you are advised by firebase documentation for help (2:46:50 for help in the video)
+- Add the `translate test in firestore` extension while the other stripe extension is being setup
+  - Make sure to set the collection path in our case it was `chats/{chatId}/messages
+- Go to stripe console & add a product
+  - IMPORTANT: make sure to add `firebaseRole: "pro"` in the product metadata
+- Go to `<Checkout />` button component & complete checkout flow, you have everything you need for this flow
+- Test the checkout flow & check DB for confirmation that record is there or not
+- Add `<SubscriptionProvider />` & add your `lib/converters/Subscription.ts` & `types/Subscription.ts`
+  - install `zustand` for subscription state management
+  - create `/store/store.ts` file with your global state
+  - add `<SubscriptionProvider />` in your main `layout.tsx` file
+- Add `<UpgradeBanner />`
+- Add `<ManageAccountButton />` in `<CheckoutButton />`
+  -  Add `actions/generatePortalLink` in `ManageAccountButton`
+- Add a new route `(user)`
+  - Add `/chat` page
+  - Add `/chat/:chatId` page
+  - Add `layout.tsx` for these page under `(user)` directory
+ 
+
+
+
+
+
+

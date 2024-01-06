@@ -128,6 +128,9 @@ NextJS 13, Stripe payments, stripe portal links, stripe webhooks, shadcn, tailwi
       - Add `DeleteChat`
     - Add `hooks/useIsAdmin.ts`
 - Deploy to `vercel`
+  - Once deployed link made
+  - Go to google console and update the authentication link in `Authorized JavaScript origins` & `Authorized redirect URLs`
+  
   
  
  

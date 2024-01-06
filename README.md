@@ -50,9 +50,9 @@ pnpm dev
 bun dev
 ```
 
-#### Walkthrough when setting the application up! For self notes. 😀
+## Setting Up the Application: A Guide for Personal Reference 😃
 
-NextJS 13, Stripe payments, stripe portal links, stripe webhooks, shadcn, tailwind css, firebase v9, firebase rules, next auth with google provider, zod for form authentication, zustand for global state management, dark & light mode, protected routes, free tier features & paid tier features
+This is a step-by-step guide to setting up a web application using NextJS 13. It includes features like Stripe payments, dark & light modes, and more like stripe portal links, stripe webhooks, shadcn, tailwind css, firebase v9, firebase rules, next auth with google provider, zod for form authentication, zustand for global state management, dark & light mode, protected routes, free tier features & paid tier features
 
 - First we install NextJS 13 via the cli for the project
 - We first create `<Header />` component
@@ -109,7 +109,7 @@ NextJS 13, Stripe payments, stripe portal links, stripe webhooks, shadcn, tailwi
  - Add `layout.tsx` for these page under `(user)` directory
   - Add `/chat` page
     - create `CreateChatButton`
-      - add rules in firebase for /chats/** rule sets i.e, chats/:chatid, chats/:chatid/members, chats/:chatid/members/:member, chats/:chatid/messages/:messageId
+      - add rules in firebase for /chats/** rule sets i.e, chats/:chatId, chats/:chatId/members, chats/:chatId/members/:member, chats/:chatId/messages/:messageId
       - create a new chat, redirect the user to chat
       - ensure the user is pro or not and handle permissions there accordingly
     - add a new converter for `ChatMembers` & add refs
@@ -130,13 +130,9 @@ NextJS 13, Stripe payments, stripe portal links, stripe webhooks, shadcn, tailwi
 - Deploy to `vercel`
   - Once deployed link made
   - Go to google console and update the authentication link in `Authorized JavaScript origins` & `Authorized redirect URLs`
-  
-  
- 
- 
 
+### Note to Self:
+- Make smart, efficient decisions to reach a Product-Market Fit (PMF) quickly.
+- Always test features thoroughly before deployment.
 
-
-
-
-
+Happy coding! 🚀

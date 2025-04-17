@@ -8,8 +8,6 @@ Welcome to the Portfolio SaaS Chat App, a versatile chat application built with 
 
 - [Next.js](https://nextjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
-- [Shadcn](https://ui.shadcn.com/)
-- [Zustand](https://github.com/pmndrs/zustand)
 - [NextAuth.js](https://next-auth.js.org/)
 - [Firebase](https://firebase.google.com/)
   - Extension: [Translate Text in Firebase](#) <!-- Replace # with the link -->

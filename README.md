@@ -15,7 +15,6 @@ Welcome to the Portfolio SaaS Chat App, a versatile chat application built with 
   - Extension: [Translate Text in Firebase](#) <!-- Replace # with the link -->
   - Extension: [Run Payments with Stripe in Firebase](#) <!-- Replace # with the link -->
 - [Stripe](https://stripe.com/)
-- [Zod](https://github.com/colinhacks/zod)
 - [TypeScript](https://www.typescriptlang.org/)
 
 ## Features

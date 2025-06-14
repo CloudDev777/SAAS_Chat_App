@@ -5,3 +5,4 @@ export default withAuth;
 export const config = {
   matcher: ["/chat", "/chat/:id*", "/register"],
 };
+   
